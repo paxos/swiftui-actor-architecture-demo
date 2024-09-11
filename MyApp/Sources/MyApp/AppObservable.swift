@@ -17,14 +17,16 @@ public class AppObservable {
     private var subscriptions = Set<AnyCancellable>()
 
     init(greetingsService: GreetingsService, namesService: NamesService) {
-        greetingsService.updatedPublisher
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.greetings, on: self)
-            .store(in: &subscriptions)
-        
-        namesService.updatedPublisher
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.names, on: self)
-            .store(in: &subscriptions)
+        Task {
+            await greetingsService.updatedPublisher
+                .receive(on: DispatchQueue.main)
+                .assign(to: \.greetings, on: self)
+                .store(in: &subscriptions)
+
+            await namesService.updatedPublisher
+                .receive(on: DispatchQueue.main)
+                .assign(to: \.names, on: self)
+                .store(in: &subscriptions)
+        }
     }
 }
