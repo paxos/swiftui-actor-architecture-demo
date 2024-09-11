@@ -10,7 +10,7 @@ import Foundation
 
 @AppActor
 public class GreetingsService {
-    let updatedPublisher: CurrentValueSubject<[String], Never>
+    let updatedPublisher: CurrentValueSubject<[String], Never> = .init(["Hello"])
     private let namesService: NamesService
 
     private var greetings: [String] {
@@ -20,7 +20,6 @@ public class GreetingsService {
 
     init(namesService: NamesService) {
         self.namesService = namesService
-        self.updatedPublisher = .init(["Hello"])
     }
 
     public func add(greeting: String) {

@@ -7,8 +7,7 @@
 
 import Foundation
 
-@Observable
-public final class MyApp: Sendable {
+public final class MyApp: Observable, Sendable {
     public let observable: AppObservable
     public let greetingsService: GreetingsService
     public let namesService: NamesService
