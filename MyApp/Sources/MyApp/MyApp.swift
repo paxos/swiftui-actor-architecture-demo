@@ -8,9 +8,9 @@
 import Foundation
 
 @Observable
-public final class MyApp {
+public final class MyApp: Sendable {
     public let greetingsService: GreetingsService
-    public var observable: AppObservable!
+    public let observable: AppObservable
 
     @AppActor
     public init() async {

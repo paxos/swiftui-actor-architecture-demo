@@ -11,7 +11,6 @@ import SwiftUI
 @main
 struct SwiftUIActorArchitectureApp: App {
     @State private var app: MyApp? = nil
-
     @State private var b = "a"
 
     var body: some Scene {
@@ -28,3 +27,4 @@ struct SwiftUIActorArchitectureApp: App {
         }
     }
 }
+

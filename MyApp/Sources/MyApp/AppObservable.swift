@@ -5,14 +5,14 @@
 //  Created by Patrick Dinger on 9/11/24.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 @Observable
 @MainActor
 public class AppObservable {
     public private(set) var greetings: [String] = []
-    
+
     private var subscriptions = Set<AnyCancellable>()
 
     init(greetingsService: GreetingsService) {
