@@ -23,6 +23,10 @@ public final class GreetingsService {
     }
 
     public func add(greeting: String) {
-        greetings.append(greeting + " " + (namesService.updatedPublisher.value.randomElement() ?? "Nobody"))
+        greetings
+            .append(
+                greeting + " " + (namesService.updatedPublisher.value.randomElement() ?? "Nobody") + " " + UUID()
+                    .uuidString
+            )
     }
 }
