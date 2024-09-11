@@ -7,12 +7,12 @@
 
 import Foundation
 
+@AppActor
 public final class MyApp: Observable, Sendable {
     public let observable: AppObservable
     public let greetingsService: GreetingsService
     public let namesService: NamesService
 
-    @AppActor
     public init() async {
         self.namesService = NamesService()
         self.greetingsService = GreetingsService(namesService: namesService)
