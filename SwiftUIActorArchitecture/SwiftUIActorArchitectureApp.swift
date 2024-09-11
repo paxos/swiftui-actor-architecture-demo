@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MyApp
 
 @main
 struct SwiftUIActorArchitectureApp: App {

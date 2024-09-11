@@ -11,6 +11,7 @@
 		6F281AF32C9208050081B062 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F281AF22C9208050081B062 /* ContentView.swift */; };
 		6F281AF52C9208060081B062 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F281AF42C9208060081B062 /* Assets.xcassets */; };
 		6F281AF82C9208060081B062 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F281AF72C9208060081B062 /* Preview Assets.xcassets */; };
+		6F281B102C920B470081B062 /* MyApp in Frameworks */ = {isa = PBXBuildFile; productRef = 6F281B0F2C920B470081B062 /* MyApp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		6F281AF42C9208060081B062 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F281AF72C9208060081B062 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6F281AF92C9208060081B062 /* SwiftUIActorArchitecture.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftUIActorArchitecture.entitlements; sourceTree = "<group>"; };
+		6F281B0B2C920B080081B062 /* MyApp */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MyApp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F281B102C920B470081B062 /* MyApp in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -36,8 +39,10 @@
 		6F281AE42C9208050081B062 = {
 			isa = PBXGroup;
 			children = (
+				6F281B0B2C920B080081B062 /* MyApp */,
 				6F281AEF2C9208050081B062 /* SwiftUIActorArchitecture */,
 				6F281AEE2C9208050081B062 /* Products */,
+				6F281B0E2C920B470081B062 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,6 +57,7 @@
 		6F281AEF2C9208050081B062 /* SwiftUIActorArchitecture */ = {
 			isa = PBXGroup;
 			children = (
+				6F281AFF2C9208140081B062 /* App */,
 				6F281AF02C9208050081B062 /* SwiftUIActorArchitectureApp.swift */,
 				6F281AF22C9208050081B062 /* ContentView.swift */,
 				6F281AF42C9208060081B062 /* Assets.xcassets */,
@@ -69,6 +75,20 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		6F281AFF2C9208140081B062 /* App */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		6F281B0E2C920B470081B062 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,8 +103,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				6F281B0D2C920B420081B062 /* PBXTargetDependency */,
 			);
 			name = SwiftUIActorArchitecture;
+			packageProductDependencies = (
+				6F281B0F2C920B470081B062 /* MyApp */,
+			);
 			productName = SwiftUIActorArchitecture;
 			productReference = 6F281AED2C9208050081B062 /* SwiftUIActorArchitecture.app */;
 			productType = "com.apple.product-type.application";
@@ -145,6 +169,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6F281B0D2C920B420081B062 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 6F281B0C2C920B420081B062 /* MyApp */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6F281AFA2C9208060081B062 /* Debug */ = {
@@ -288,6 +319,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "de.the-skylab.SwiftUIActorArchitecture";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -315,6 +347,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "de.the-skylab.SwiftUIActorArchitecture";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -341,6 +374,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6F281B0C2C920B420081B062 /* MyApp */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MyApp;
+		};
+		6F281B0F2C920B470081B062 /* MyApp */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MyApp;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6F281AE52C9208050081B062 /* Project object */;
 }
