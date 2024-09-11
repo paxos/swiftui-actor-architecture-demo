@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 @AppActor
-public class NamesService {
+public final class NamesService {
     let updatedPublisher: CurrentValueSubject<[String], Never> = .init(["Patrick", "Peter"])
 
     private var names: [String] {

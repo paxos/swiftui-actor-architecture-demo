@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 @AppActor
-public class GreetingsService {
+public final class GreetingsService {
     let updatedPublisher: CurrentValueSubject<[String], Never> = .init(["Hello"])
     private let namesService: NamesService
 
