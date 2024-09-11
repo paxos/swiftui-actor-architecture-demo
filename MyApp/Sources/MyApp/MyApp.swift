@@ -7,14 +7,14 @@
 
 import Foundation
 
-@AppActor
-public class MyApp {
-    public static let shared = MyApp()
+@Observable
+public final class MyApp {
     public let greetingsService: GreetingsService
-    @MainActor public let observable: AppObservable
-    
-    public init() {
+    public var observable: AppObservable!
+
+    @AppActor
+    public init() async {
         self.greetingsService = GreetingsService()
-        self.observable = AppObservable(greetingsService: greetingsService)
+        self.observable = await AppObservable(greetingsService: greetingsService)
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 @Observable
+@MainActor
 public class AppObservable {
     public private(set) var greetings: [String] = []
     

@@ -9,7 +9,7 @@ import MyApp
 import SwiftUI
 
 struct ContentView: View {
-    let app = MyApp.shared
+    @Environment(MyApp.self) private var app
     var body: some View {
         VStack {
             Button("Add") {
