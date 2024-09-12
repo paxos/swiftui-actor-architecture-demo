@@ -27,7 +27,7 @@ public final class GreetingsService {
     public func add(greeting: String) {
         greetings
             .append(
-                greeting + " " + (namesService.updatedPublisher.value.randomElement() ?? "Nobody") + " " + UUID()
+                greeting + " " + (appState.names.randomElement() ?? "Nobody") + " " + UUID()
                     .uuidString
             )
     }

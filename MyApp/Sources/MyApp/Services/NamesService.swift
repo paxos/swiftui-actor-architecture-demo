@@ -9,8 +9,6 @@ import Combine
 import Foundation
 
 public final class NamesService {
-    let updatedPublisher: CurrentValueSubject<[String], Never> = .init(["Patrick", "Peter"])
-
     private let appState: AppState
 
     init(appState: AppState) {
