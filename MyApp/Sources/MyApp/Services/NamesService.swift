@@ -11,13 +11,19 @@ import Foundation
 public final class NamesService {
     let updatedPublisher: CurrentValueSubject<[String], Never> = .init(["Patrick", "Peter"])
 
-    @AppActor
-    private var names: [String] {
-        get { updatedPublisher.value }
-        set(value) { updatedPublisher.send(value) }
+    private let appState: AppState
+
+    init(appState: AppState) {
+        self.appState = appState
     }
 
-    @AppActor
+    @MainActor
+    private var names: [String] {
+        get { appState.names }
+        set(value) { appState.names = value }
+    }
+
+    @MainActor
     public func add(name: String) {
         names.append(name)
     }

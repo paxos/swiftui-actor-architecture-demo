@@ -9,20 +9,21 @@ import Combine
 import Foundation
 
 public final class GreetingsService {
-    let updatedPublisher: CurrentValueSubject<[String], Never> = .init(["Hello"])
     private let namesService: NamesService
+    private let appState: AppState
 
-    @AppActor
+    @MainActor
     private var greetings: [String] {
-        get { updatedPublisher.value }
-        set(value) { updatedPublisher.send(value) }
+        get { appState.greetings }
+        set(value) { appState.greetings = value }
     }
 
-    init(namesService: NamesService) {
+    init(appState: AppState, namesService: NamesService) {
+        self.appState = appState
         self.namesService = namesService
     }
 
-    @AppActor
+    @MainActor
     public func add(greeting: String) {
         greetings
             .append(

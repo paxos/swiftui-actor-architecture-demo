@@ -13,12 +13,10 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button("Add") {
-                Task {
-                    await app.greetingsService.add(greeting: "Yo")
-                }
+                app.greetingsService.add(greeting: "Yo")
             }
 
-            List(app.observable.greetings, id: \.self) { greeting in
+            List(app.appState.greetings, id: \.self) { greeting in
                 Text(greeting)
             }
         }
