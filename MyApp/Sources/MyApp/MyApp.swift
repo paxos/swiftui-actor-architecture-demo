@@ -9,7 +9,7 @@ import Foundation
 
 @AppActor
 public final class MyApp: Observable, Sendable {
-    public let observable: AppObservable
+    @MainActor public let observable: AppObservable
     public let greetingsService: GreetingsService
     public let namesService: NamesService
 
