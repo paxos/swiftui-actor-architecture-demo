@@ -12,13 +12,18 @@ struct ContentView: View {
     @Environment(MyApp.self) private var app
     var body: some View {
         VStack {
-            Button("Add") {
-                Task {
-                    await app.greetingsService.add(greeting: "Yo")
+            HStack {
+                Button("Add") {
+                    app.greetingsService.add(greeting: "Yo")
+                }
+
+                Button("Add Async") {
+                    Task {
+                        await app.greetingsService.addAsync(greeting: "Yo")
+                    }
                 }
             }
-
-            List(app.observable.greetings, id: \.self) { greeting in
+            List(app.appState.greetings, id: \.self) { greeting in
                 Text(greeting)
             }
         }
