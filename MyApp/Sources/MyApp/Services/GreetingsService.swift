@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-public final class GreetingsService {
+public final class GreetingsService: Sendable {
     private let namesService: NamesService
     private let appState: AppState
 
@@ -30,5 +30,16 @@ public final class GreetingsService {
                 greeting + " " + (appState.names.randomElement() ?? "Nobody") + " " + UUID()
                     .uuidString
             )
+    }
+
+    @AppActor
+    public func addAsync(greeting: String) async {
+        let randomName = await appState.names.randomElement()
+        let newGreeting = greeting + " " + (randomName ?? "Nobody") + " " + UUID()
+            .uuidString
+
+        Task { @MainActor in
+            appState.greetings.append(newGreeting)
+        }
     }
 }

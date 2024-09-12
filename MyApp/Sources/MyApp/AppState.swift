@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 @Observable
-public final class AppState {
+public final class AppState: Sendable {
     @MainActor public internal(set) var greetings: [String] = []
     @MainActor public internal(set) var names: [String] = []
 }

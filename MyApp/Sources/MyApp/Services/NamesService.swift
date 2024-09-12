@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-public final class NamesService {
+public final class NamesService: Sendable {
     private let appState: AppState
 
     init(appState: AppState) {
