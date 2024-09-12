@@ -7,16 +7,18 @@
 
 import Foundation
 
-@AppActor
-public final class MyApp: Observable, Sendable {
-    @MainActor public let observable: AppObservable
-    public let greetingsService: GreetingsService
-    public let namesService: NamesService
+public final class MyApp: Observable {
+    public var observable: AppObservable! = nil
 
-    public init() async {
+    public var greetingsService: GreetingsService! = nil
+    public var namesService: NamesService! = nil
+
+    public init() {
         self.namesService = NamesService()
         self.greetingsService = GreetingsService(namesService: namesService)
-
-        self.observable = await AppObservable(greetingsService: greetingsService, namesService: namesService)
+        self.observable = AppObservable(greetingsService: greetingsService, namesService: namesService)
+        Task { @MainActor in
+            self.observable.setup()
+        }
     }
 }

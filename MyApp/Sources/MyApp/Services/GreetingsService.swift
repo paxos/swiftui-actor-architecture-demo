@@ -8,11 +8,11 @@
 import Combine
 import Foundation
 
-@AppActor
 public final class GreetingsService {
     let updatedPublisher: CurrentValueSubject<[String], Never> = .init(["Hello"])
     private let namesService: NamesService
 
+    @AppActor
     private var greetings: [String] {
         get { updatedPublisher.value }
         set(value) { updatedPublisher.send(value) }
@@ -22,6 +22,7 @@ public final class GreetingsService {
         self.namesService = namesService
     }
 
+    @AppActor
     public func add(greeting: String) {
         greetings
             .append(

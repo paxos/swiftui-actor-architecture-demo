@@ -10,21 +10,13 @@ import SwiftUI
 
 @main
 struct SwiftUIActorArchitectureApp: App {
-    @State private var app: MyApp? = nil
+    @State private var app: MyApp? = MyApp()
     @State private var b = "a"
 
     var body: some Scene {
         WindowGroup {
-            if app == nil {
-                Text("Loading…")
-                    .task {
-                        app = await MyApp()
-                    }
-            } else {
-                ContentView()
-                    .environment(app)
-            }
+            ContentView()
+                .environment(app)
         }
     }
 }
-

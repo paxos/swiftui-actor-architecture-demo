@@ -8,15 +8,16 @@
 import Combine
 import Foundation
 
-@AppActor
 public final class NamesService {
     let updatedPublisher: CurrentValueSubject<[String], Never> = .init(["Patrick", "Peter"])
 
+    @AppActor
     private var names: [String] {
         get { updatedPublisher.value }
         set(value) { updatedPublisher.send(value) }
     }
 
+    @AppActor
     public func add(name: String) {
         names.append(name)
     }
