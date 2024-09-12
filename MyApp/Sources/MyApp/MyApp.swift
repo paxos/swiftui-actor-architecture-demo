@@ -8,10 +8,10 @@
 import Foundation
 
 public final class MyApp: Observable {
-    public var observable: AppObservable! = nil
+    public var observable: AppObservable
 
-    public var greetingsService: GreetingsService! = nil
-    public var namesService: NamesService! = nil
+    public var greetingsService: GreetingsService
+    public var namesService: NamesService
 
     public init() {
         self.namesService = NamesService()
