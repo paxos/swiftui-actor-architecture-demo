@@ -15,7 +15,7 @@ public final class GreetingsService: Sendable {
     @MainActor
     private var greetings: [String] {
         get { appState.greetings }
-        set(value) { appState.greetings = value }
+        set(value) { appState.greetingsPublisher.send(value) }
     }
 
     init(appState: AppState, namesService: NamesService) {
@@ -39,7 +39,10 @@ public final class GreetingsService: Sendable {
             .uuidString
 
         Task { @MainActor in
-            appState.greetings.append(newGreeting)
+            var newGreetings = appState.greetings
+            newGreetings.append(newGreeting)
+            appState.greetingsPublisher.value = []
+            appState.greetingsPublisher.send(newGreetings)
         }
     }
 }
